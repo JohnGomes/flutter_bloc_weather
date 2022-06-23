@@ -1,0 +1,7 @@
+{
+    "yaml.schemas": {
+        "https://json.schemastore.org/dart-build.json": [
+            "build.yaml"
+        ]
+    }
+}
