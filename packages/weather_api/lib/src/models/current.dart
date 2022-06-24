@@ -7,31 +7,54 @@ part 'current.g.dart';
 class Current {
   int? lastUpdatedEpoch;
   String? lastUpdated;
-  int? tempC;
-  int? tempF;
-  int? isDay;
+  double? tempC;
+  double? tempF;
+  double? isDay;
   Condition? condition;
   double? windMph;
   double? windKph;
-  int? windDegree;
+  double? windDegree;
   String? windDir;
-  int? pressureMb;
+  double? pressureMb;
   double? pressureIn;
   double? precipMm;
   double? precipIn;
-  int? humidity;
-  int? cloud;
+  double? humidity;
+  double? cloud;
   double? feelslikeC;
   double? feelslikeF;
-  int? visKm;
-  int? visMiles;
-  int? uv;
+  double? visKm;
+  double? visMiles;
+  double? uv;
   double? gustMph;
   double? gustKph;
 
-  Current({this.lastUpdatedEpoch, this.lastUpdated, this.tempC, this.tempF, this.isDay, this.condition, this.windMph, this.windKph, this.windDegree, this.windDir, this.pressureMb, this.pressureIn, this.precipMm, this.precipIn, this.humidity, this.cloud, this.feelslikeC, this.feelslikeF, this.visKm, this.visMiles, this.uv, this.gustMph, this.gustKph,});
+  Current({
+    this.lastUpdatedEpoch,
+    this.lastUpdated,
+    this.tempC,
+    this.tempF,
+    this.isDay,
+    this.condition,
+    this.windMph,
+    this.windKph,
+    this.windDegree,
+    this.windDir,
+    this.pressureMb,
+    this.pressureIn,
+    this.precipMm,
+    this.precipIn,
+    this.humidity,
+    this.cloud,
+    this.feelslikeC,
+    this.feelslikeF,
+    this.visKm,
+    this.visMiles,
+    this.uv,
+    this.gustMph,
+    this.gustKph,
+  });
 
-  
   factory Current.fromJson(Map<String, dynamic> json) => _$CurrentFromJson(json);
 
   Map<String, dynamic> toJson() {

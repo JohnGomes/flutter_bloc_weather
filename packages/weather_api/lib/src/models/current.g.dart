@@ -16,9 +16,9 @@ Current _$CurrentFromJson(Map<String, dynamic> json) => $checkedCreate(
           lastUpdatedEpoch:
               $checkedConvert('last_updated_epoch', (v) => v as int?),
           lastUpdated: $checkedConvert('last_updated', (v) => v as String?),
-          tempC: $checkedConvert('temp_c', (v) => v as int?),
-          tempF: $checkedConvert('temp_f', (v) => v as int?),
-          isDay: $checkedConvert('is_day', (v) => v as int?),
+          tempC: $checkedConvert('temp_c', (v) => (v as num?)?.toDouble()),
+          tempF: $checkedConvert('temp_f', (v) => (v as num?)?.toDouble()),
+          isDay: $checkedConvert('is_day', (v) => (v as num?)?.toDouble()),
           condition: $checkedConvert(
               'condition',
               (v) => v == null
@@ -26,24 +26,27 @@ Current _$CurrentFromJson(Map<String, dynamic> json) => $checkedCreate(
                   : Condition.fromJson(v as Map<String, dynamic>)),
           windMph: $checkedConvert('wind_mph', (v) => (v as num?)?.toDouble()),
           windKph: $checkedConvert('wind_kph', (v) => (v as num?)?.toDouble()),
-          windDegree: $checkedConvert('wind_degree', (v) => v as int?),
+          windDegree:
+              $checkedConvert('wind_degree', (v) => (v as num?)?.toDouble()),
           windDir: $checkedConvert('wind_dir', (v) => v as String?),
-          pressureMb: $checkedConvert('pressure_mb', (v) => v as int?),
+          pressureMb:
+              $checkedConvert('pressure_mb', (v) => (v as num?)?.toDouble()),
           pressureIn:
               $checkedConvert('pressure_in', (v) => (v as num?)?.toDouble()),
           precipMm:
               $checkedConvert('precip_mm', (v) => (v as num?)?.toDouble()),
           precipIn:
               $checkedConvert('precip_in', (v) => (v as num?)?.toDouble()),
-          humidity: $checkedConvert('humidity', (v) => v as int?),
-          cloud: $checkedConvert('cloud', (v) => v as int?),
+          humidity: $checkedConvert('humidity', (v) => (v as num?)?.toDouble()),
+          cloud: $checkedConvert('cloud', (v) => (v as num?)?.toDouble()),
           feelslikeC:
               $checkedConvert('feelslike_c', (v) => (v as num?)?.toDouble()),
           feelslikeF:
               $checkedConvert('feelslike_f', (v) => (v as num?)?.toDouble()),
-          visKm: $checkedConvert('vis_km', (v) => v as int?),
-          visMiles: $checkedConvert('vis_miles', (v) => v as int?),
-          uv: $checkedConvert('uv', (v) => v as int?),
+          visKm: $checkedConvert('vis_km', (v) => (v as num?)?.toDouble()),
+          visMiles:
+              $checkedConvert('vis_miles', (v) => (v as num?)?.toDouble()),
+          uv: $checkedConvert('uv', (v) => (v as num?)?.toDouble()),
           gustMph: $checkedConvert('gust_mph', (v) => (v as num?)?.toDouble()),
           gustKph: $checkedConvert('gust_kph', (v) => (v as num?)?.toDouble()),
         );
