@@ -71,12 +71,12 @@ class WeatherApiClient {
       throw WeatherNotFoundFailure();
     }
 
-    final weatherJson = bodyJson['consolidated_weather'] as List;
+    final weatherJson = bodyJson;
 
-    if (weatherJson.isEmpty) {
+    if (weatherJson == null) {
       throw WeatherNotFoundFailure();
     }
 
-    return Weather.fromJson(weatherJson.first as Map<String, dynamic>);
+    return Weather.fromJson(weatherJson);
   }
 }

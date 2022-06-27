@@ -15,7 +15,7 @@ class WeatherRepository {
     final id = location.id;
     final weather = await _weatherApiClient.getWeather(city, id ?? 0);
     return Weather(
-      temperature: weather.current?.tempF ?? 0, // weather.theTemp,
+      temperature: weather.current?.tempC ?? 0, // weather.theTemp,
       location: location.name ?? "Name not found",
       condition: weather.current?.condition?.toCondition ?? WeatherCondition.unknown,
     );
@@ -25,12 +25,12 @@ class WeatherRepository {
 //https://www.weatherapi.com/docs/weather_conditions.json
 extension on Condition {
   WeatherCondition get toCondition {
-    var text = this.text ?? "";
+    var text = (this.text ?? "").toLowerCase();
 
-    if (text.contains('clear')) return WeatherCondition.clear;
+    if (text.contains('clear') || text.contains('sunny')) return WeatherCondition.clear;
     if (text.contains('snow')) return WeatherCondition.snowy;
     if (text.contains('rain')) return WeatherCondition.rainy;
-    if (text.contains('cloud')) return WeatherCondition.cloudy;
+    if (text.contains('cloud') || text.contains('overcast')) return WeatherCondition.cloudy;
     return WeatherCondition.unknown;
   }
 }
